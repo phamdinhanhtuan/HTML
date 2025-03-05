@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Women's Day 8/3</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        overflow: hidden;
+        font-family: "Dancing Script", cursive;
+      }
+
+      .container {
+        position: relative;
+        text-align: center;
+        color: #fff;
+      }
+
+      .title {
+        font-size: 4rem;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .flowers {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .flower {
+        position: absolute;
+        width: 40px; /* Kích thước hoa hồng */
+        height: 40px;
+        background-image: url("https://cdn-icons-png.flaticon.com/512/679/679821.png"); /* Hình ảnh hoa hồng */
+        background-size: cover;
+        animation: fall 5s linear infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-10vh) rotate(0deg);
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+        }
+      }
+
+      .flower:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+
+      .flower:nth-child(2) {
+        left: 20%;
+        animation-delay: 1s;
+      }
+
+      .flower:nth-child(3) {
+        left: 30%;
+        animation-delay: 2s;
+      }
+
+      .flower:nth-child(4) {
+        left: 40%;
+        animation-delay: 3s;
+      }
+
+      .flower:nth-child(5) {
+        left: 50%;
+        animation-delay: 4s;
+      }
+
+      .flower:nth-child(6) {
+        left: 60%;
+        animation-delay: 5s;
+      }
+
+      .flower:nth-child(7) {
+        left: 70%;
+        animation-delay: 6s;
+      }
+
+      .flower:nth-child(8) {
+        left: 80%;
+        animation-delay: 7s;
+      }
+
+      .flower:nth-child(9) {
+        left: 90%;
+        animation-delay: 8s;
+      }
+
+      .flower:nth-child(10) {
+        left: 100%;
+        animation-delay: 9s;
+      }
+
+      .btn {
+        margin-top: 2rem;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+        font-family: "Dancing Script", cursive;
+        color: #fff;
+        background: #ff6f61;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .letter {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        width: 300px;
+        height: 200px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        z-index: 1000;
+      }
+
+      .letter.open {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+
+      .letter-content h2 {
+        font-size: 2rem;
+        color: #ff6f61;
+        margin-bottom: 1rem;
+      }
+
+      .letter-content p {
+        font-size: 1.2rem;
+        color: #333;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease-in-out;
+        z-index: 999;
+      }
+
+      .overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Happy Women's Day 8/3</h1>
+      <button class="btn" id="openLetterBtn">Open Letter</button>
+      <div class="flowers">
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+      </div>
+    </div>
+
+    <!-- Phần thư -->
+    <div class="overlay" id="overlay"></div>
+    <div class="letter" id="letter">
+      <div class="letter-content">
+        <h2>Dear You,</h2>
+        <p>
+          On this special day, I want to thank you for being such an amazing
+          person. You inspire me every day with your strength, kindness, and
+          beauty. Happy Women's Day!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript để hiển thị thư
+      const openLetterBtn = document.getElementById("openLetterBtn");
+      const overlay = document.getElementById("overlay");
+      const letter = document.getElementById("letter");
+
+      openLetterBtn.addEventListener("click", () => {
+        overlay.classList.add("active");
+        letter.classList.add("open");
+      });
+
+      overlay.addEventListener("click", () => {
+        overlay.classList.remove("active");
+        letter.classList.remove("open");
+      });
+    </script>
+  </body>
+</html>
